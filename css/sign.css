@@ -1,0 +1,66 @@
+.sign {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .sign-items {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 400px;
+  }
+  
+  .btn {
+    width: 400px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 1.5rem;
+    background-color: #7dd13b;
+    border: none;
+  }
+  
+  .btn:hover {
+    background-color: #afe26c;
+    border: none;
+  }
+  
+  .sign p {
+    margin: 10px 0 5px 0;
+    color: #646868;
+  }
+  
+  .sign a {
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .sign a:hover {
+    color: #a64bf4;
+  }
+  
+  .input-group-lg {
+    margin-bottom: 10px;
+  }
+  
+  .input-group-lg p {
+    color: #333333;
+    text-align: left;
+    margin: 0;
+  }
+  
+  span i {
+    padding: 0 10px;
+  }
