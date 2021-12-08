@@ -1,8 +1,9 @@
 <?php 
     include "includes/header.php";
+
 ?>
 
-    <section class="hero hero-normal">
+     <section class="hero hero-normal">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -30,6 +31,10 @@
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="product.php" method="GET">
+                                <!-- <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div> -->
 
                                 <input type="text" name="namepro" placeholder="Bạn cần thông tin gì?">
                                 <button type="" class="site-btn">Tìm kiếm</button>
@@ -60,7 +65,7 @@
                     <div class="breadcrumb__text">
                         <h2>SNEAKER SHOP</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Trang chủ</a>
+                            <a href="./index.php">Trang chủ</a>
                           
                         <span>Tất cả sản phẩm</span>
                         </div>
@@ -80,29 +85,76 @@
                         <div class="sidebar__item">
                             <h4>Thương hiệu</h4>
                             <?php
-                                $show = $brand->show_brand();
-                                if($show){
+                        $show = $brand->show_brand();
+                        if($show){
                            
-                                    while($result = $show->fetch_assoc()){
-                            ?>
+                            while($result = $show->fetch_assoc()){
+                               
+                        
+                    ?>
                         <ul>
 
                             <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName']; ?></a></li>
                             
                         </ul>
-                            <?php
-                                    }
-                                }
-                            ?> 
+                        <?php
+                    }
+                        }
+                        ?> 
                         </div>
-                        <div class="sidebar__item">
+                    <style> 
+                    input[type=number]#fmin, select {
+                        font-size: 18px;
+                        width: 100%;
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                        }
+                    input[type=number]#fmax, select {
+                        font-size: 18px;
+                        width: 100%;
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                        }
+                        input[type=submit] {
+                        width: 100%;
+                        background-color: #4CAF50;
+                        color: white;
+                        padding: 14px 20px;
+                        margin: 8px 0;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        }
+                        input[type=submit]:hover {
+                        background-color: #45a049;
+                        }
+                    </style>
+                    <?php
+                        if(!isset($_GET['mincost']) || $_GET['mincost']==NULL){
+                            $mincost = 1;
+                            $maxcost = 999;
+                        } else {
+                            $mincost = $_GET['mincost'];
+                            $maxcost = $_GET['maxcost'];
+                        }
+                    ?>
+                    <form action="">
+                        <label style="font-size:18px"  for="fname">Giá trị nhỏ nhất</label>
+                        <input type="number" id="fmin" min = "0" value = "<?php echo $mincost; ?>" name="mincost" placeholder="Min value">
 
-                        </div>
-                        <div class="sidebar__item sidebar__item__color--option">
-                        </div>
-                        <div class="sidebar__item">
-                        </div>
-                        
+                        <label style="font-size:18px" for="lname">Giá trị lớn nhất</label>
+                        <input type="number" id="fmax" min = "0" value = "<?php echo $maxcost; ?>" name="maxcost" placeholder="Max value">
+
+                        <input style="font-size:18px" type="submit" value="Tìm kiếm">
+                    </form>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
@@ -125,22 +177,16 @@
                         
                         }
                        
+                        
+                        
+
+                        
                         ?>
                             
                             <div class="filter__item">
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-               
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="filter__found">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-3">
-                                <div class="filter__option">
-                                </div>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -190,13 +236,21 @@
             <?php 
                 }
             }
-             ?>            
-                                 
+             ?>                   
             <?php
-                } else {
+                }else{
                     $prodList = $pro->Show_Product($searchpost,$searchget);
-                        if ($prodList) {
+                    if(!isset($_GET['mincost']) || $_GET['mincost']==NULL){
+                        $mincost = 1;
+                        $maxcost = 999;
+                    } else {
+                        $mincost = $_GET['mincost'];
+                        $maxcost = $_GET['maxcost'];
+                    }
+                        if($prodList){
+                        
                             while ($result = $prodList->fetch_assoc()) {
+                                if ($result['price'] >= $mincost && $result['price'] <= $maxcost) {
             ?>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -213,22 +267,15 @@
                         </div>
 
             <?php 
-                    }   
+                    }  
+            
                 }
+            }
             }
               ?>
                     </div>
                         </div>
-                        
-                    <center>
-                        
-                        <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                    </center>
+                    
                 </div>
             </div>
         </div>
@@ -237,5 +284,8 @@
 
     <!-- Footer Section Begin -->
 <?php
+    
     include "includes/footer.php";
+    
+
 ?>

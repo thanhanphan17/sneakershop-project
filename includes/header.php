@@ -96,7 +96,7 @@ $buyer= Session::get('customer_user');
                                 if ($check== false) {
                             ?>
                                  <div class="header__top__right__social">
-                                     <a href="register.php"><i ></i> Đăng ký</a>
+                                     <a href="register.php"><i></i> Đăng ký</a>
                                  </div>
                                  
                             <?php 

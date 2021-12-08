@@ -80,7 +80,18 @@ $buyer= Session::get('customer_user');
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="admin">Admin</i></a>
                                 <a href="about.php">Về chúng tôi</i></a>
+                                <?php 
+                                    $login = Session::get('customer_login');
+                                    // $login = true;
+                                    if($login == false){
+                                    } else {
+                                        echo '<a href="profile.php">Trang cá nhân</i></a>';
+                                       
+                                        // echo  '<li><a href="./bill.php">Đơn hàng</a></li>';
+                                    }
+                                ?>  
                             </div>
+                            
                             <?php 
                                 $check = Session::get('customer_login');
                                 // $check = true;

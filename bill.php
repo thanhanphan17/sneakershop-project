@@ -97,7 +97,7 @@ include "includes/header.php";
 
 <style>
     input[type=text].inp, select {
-        font-size: 25px;;
+        font-size: 20px;;
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -119,7 +119,7 @@ include "includes/header.php";
     }
 </style>
     <div class="container">
-        <h2>Nhập mã đơn hàng: </h2>
+        <h3 style="font-weight: bold">Nhập mã đơn hàng: </h3>
         <input type="text" id="id_num" class="inp" value="" placeholder="Nhập mã đơn hàng của bạn">
         <h4 style="text-align:center; font-weight: bold"><a id="id_ord" href="#"><button onclick="myFunction()">TÌM KIẾM</button></a></h4>
         <script>

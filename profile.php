@@ -118,7 +118,7 @@ input[type=password], select {
                         ?>
                     <tr>
                         <td id="td1">Tài khoản </td>
-                        <td>:</td>
+                        <td></td>
                         <td><input  type="texts" name="" disabled value="<?php echo $username; ?>"></td>
                         
                        
@@ -128,7 +128,7 @@ input[type=password], select {
                     </tr>
                     <tr>
                         <td id="td1">Tên khách hàng </td>
-                        <td>:</td>
+                        <td></td>
                         <td>
                           <input type="texts" name="name" value="<?php echo $result['nameCus']; ?>">
                         </td>
@@ -136,25 +136,25 @@ input[type=password], select {
                     </tr>
                     <tr>
                         <td id="td1">Email </td>
-                        <td>:</td>
+                        <td></td>
                         <td><input type="texts" name="email" value="<?php echo $result['emailCus']; ?>"></td>
                         
                     </tr>
                     <tr>
                         <td id="td1">Số điện thoại </td>
-                        <td>:</td>
+                        <td></td>
                         <td><input type="texts" name="phone" value="<?php echo "0".$result['phone']; ?>"></td>
                         
                     </tr>
                     <tr>
                         <td id="td1">Địa chỉ </td>
-                        <td>:</td>
+                        <td></td>
                         <td><input type="texts" name="address" value="<?php echo $result['address']; ?>"></td>
                         
                     </tr>
                     <tr>
                         <td id="td1">Mật khẩu </td>
-                        <td>:</td>
+                        <td></td>
                         <td><input type="password" name="password" value=""></td>
                         
                     </tr>
@@ -169,7 +169,7 @@ input[type=password], select {
           
         </div>
         
-          <center><button type="submit" class="site-btn" name="submit">CẬP NHẬT</button></center>
+          <center><button type="submit" class="site-btn" name="submit">Cập nhật</button></center>
       </form> 
       
                     </div>
