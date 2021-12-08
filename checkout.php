@@ -232,17 +232,25 @@ include "includes/header.php";
                                 ?></span></div>
                                 <div class="container">
                                     <ul>
-                                        <li>
-                                            <input type="radio" checked name="payCode" value="0">
-                                            <label for="f-option">Ship Code</label>
-                                            <div class="check"></div>
-                                        </li>
-                                        
-                                        <li>
-                                            <input type="radio" name="payCode" value="1">
-                                            <label for="s-option">Thanh toán VNPAY</label>
-                                            <div class="check"><div class="inside"></div></div>
-                                        </li>
+                                        <?php 
+                                            $qtt=Session::get("total");
+                                            $qtt = (int)$qtt;
+                                            if ($qtt !=0) {
+                                        ?>
+                                            <li>
+                                                <input type="radio" checked name="payCode" value="0">
+                                                <label for="f-option">Ship Code</label>
+                                                <div class="check"></div>
+                                            </li>
+                                            
+                                            <li>
+                                                <input type="radio" name="payCode" value="1">
+                                                <label for="s-option">Thanh toán VNPAY</label>
+                                                <div class="check"><div class="inside"></div></div>
+                                            </li>
+                                        <?php 
+                                            }
+                                        ?>
                                     </ul>
                                 </div>
                                 <input type="submit" name="submit_buy"  value="Đặt hàng" style="margin-left: 70px; font-size: 30px;  padding: 0 10px;background:#7fad39; color: white; ">
